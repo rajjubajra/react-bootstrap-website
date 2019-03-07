@@ -6,3 +6,8 @@
   --dark-2:#b7c2ce;
   --dark-1: #ebeef3;
 }
+
+.index-at-top{
+  position: relative;
+  z-index: 50;
+}

@@ -85,14 +85,15 @@ ul.main-menu > li{
     position: relative;
     top: 0px;
     width: 200px;
-    margin-top: 144px;
+    margin-top: 148px;
     z-index: 1;
     padding: 0px;
     text-align: center;
     li{
       line-height: 2.5rem;
       width: 100%;
-      margin: 0.01rem;
+      margin: 0;
+      border: 1px solid var(--dark-3);
       background-color: var(--dark-3);
     }
     li a{
@@ -110,11 +111,11 @@ ul.main-menu > li{
     display: flex;
     flex-direction: column;
     position: fixed;
-    right: 40px;
+    right: 10px;
     top: 10px;
     z-index: 1;
     margin-top: 19px;
-    padding-bottom: 29px;
+    padding: 0px 30px 29px 30px;
   }
   .line-button > div{
     width: 20px;
@@ -140,8 +141,13 @@ class Navigation extends React.Component{
       this.state.isHovere === false 
         ? this.setState({isHovere: true}) 
         : this.setState({isHovere: false});
+        /** view and hide navigation menu */
        const NavBtn = document.querySelector('.main-menu');      
        this.state.isHovere ? NavBtn.classList.remove('show'): NavBtn.classList.add('show');
+       /** change nav div three line to cross shap to be done */
+       const threeLines = document.querySelector('.line-button');
+       console.log('line buttons', threeLines);
+
   }
   handleMenu = () => {
     this.state.isMobileMenu === false 
