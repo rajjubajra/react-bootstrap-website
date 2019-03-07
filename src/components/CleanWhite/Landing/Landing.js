@@ -1,8 +1,7 @@
 import React from 'react';
 import Carousel from './Carousel';
 import styled from 'styled-components';
-import Example from './Box';
-import ReactHTMLParser from 'react-html-parser';
+
 
 const Pages = styled.div`
       width: 100%;

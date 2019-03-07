@@ -22,7 +22,7 @@ display: flex;
 
   .entering{
     animation-name: ${fadeIn};
-    animation-duration: 4s;
+    animation-duration: 5s;
   }
   .entered{
     opacity: 1
@@ -60,16 +60,12 @@ componentDidMount() {
 }
 
 
-
 render(props){
   
   const {bg_2, scrollingText } = this.props;
-  const arrNum = this.state.counter;
-  
-  
+  const arrNum = this.state.counter;  
   
  return(
-    
   <CarouselItem>
         <div className="item" style={{backgroundImage:`url("${bg_2}")`}}>
           <div className={this.state.fadeIn} >
@@ -77,7 +73,7 @@ render(props){
             <span>{ReactHtmlParser(scrollingText[arrNum].field_scrolling_text)}</span>
           </div>
         </div>
-    </CarouselItem>
+  </CarouselItem>
     
   )
   
