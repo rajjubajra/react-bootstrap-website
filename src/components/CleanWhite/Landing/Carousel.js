@@ -19,6 +19,9 @@ display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-size: cover;
+  background-position: right top;
+  background-repeat: no-repeat;
 
   .entering{
     animation-name: ${fadeIn};

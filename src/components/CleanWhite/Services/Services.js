@@ -1,20 +1,29 @@
 import React from 'react';
 import styled from 'styled-components';
+import BrandIcons from './BrandIcons';
+import ServicesInColumn from './ServicesInColumn';
 
-const Pages = styled.div`
-width: 100%;
-height: 100vh;
-display: flex;
+const Page = styled.div`
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  margin-bottom: 100px;
 
 `;
 
 class Services extends React.Component{
 
-  render(){
-    return(
-      <Pages>
 
-      </Pages>
+
+  render(props){
+    return(
+      <Page>
+        <div className="container-fluid">
+          <BrandIcons serviceBrands={this.props.serviceBrands} />
+          <ServicesInColumn services={this.props.services} />
+         
+        </div>
+      </Page>      
     )
   }
 }

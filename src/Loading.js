@@ -1,11 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faIgloo, faSpinner } from '@fortawesome/free-solid-svg-icons'
-
-
-library.add(faSpinner)
 
 const Page = styled.div`
 section{
@@ -24,9 +18,9 @@ const Loading = () => (
    <section>
            <div className="left">
                <section>
-                 <h1 style={{color: '#ff5722ad', fontSize: '15vh'}}>
-                 <FontAwesomeIcon icon="spinner" pulse/></h1>
-                 <p style={{color: '#ff5722ad'}}>Loading..</p>
+                 <h1 style={{color: '#666', fontSize: '15vh'}}>
+                 <i className="fas fa-spinner fa-pulse"></i></h1>
+                 <p style={{color: '#666'}}>Loading..</p>
                </section>
                
            </div>

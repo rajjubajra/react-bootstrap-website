@@ -11,3 +11,48 @@
   position: relative;
   z-index: 50;
 }
+
+h1{
+  font-family: sans-serif;
+  font-size: 3rem;
+}
+
+h2{
+  font-family: sans-serif;
+  font-size: 2rem;
+}
+h3{
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  font-weight: 100;
+  letter-spacing: 0.15rem;
+}
+
+p{
+  font-size: 1rem;
+  font-weight: 100;
+}
+
+
+
+button{
+  padding: 15px 30px;
+  background-color: var(--light-3);
+  color: var(--dark-3);
+  font-size: 1rem;
+  font-weight: 100;
+}
+
+.read-all-button{
+  font-size: 0.9rem;
+  letter-spacing: 0.3rem;
+  font-weight: 100;
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+  text-decoration: none;
+}
+
+a.read-all-button:hover{
+text-decoration: none;
+} 

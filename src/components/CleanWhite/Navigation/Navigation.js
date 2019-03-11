@@ -1,15 +1,7 @@
 import React from 'react';
-import styled, {keyframes} from 'styled-components';
+import styled from 'styled-components';
 
 
-const animate = keyframes`
-  from {
-    border-buttom: 0px solid #999;
-  }
-  to{
-    border-buttom: 1px solid #999;
-  }
-`;
 
 
 const Nav = styled.div`
@@ -157,13 +149,15 @@ class Navigation extends React.Component{
      this.state.isMobileMenu ? NavBtn.classList.remove('show'): NavBtn.classList.add('show');
 }
   
-
+foo = () => {
+  alert(' click works ');
+}
 
 
 
   render(props){
     const {logo} = this.props;
-    
+    const yw = 'https://www.yellow-website.com';
     return(
       <Nav>
         <div className="header">
@@ -171,7 +165,8 @@ class Navigation extends React.Component{
           {/**  mobile app line icon for drop down menu */}
             <div  className="line-button" 
                   onMouseEnter={this.handleHover} 
-                  onMouseLeave={this.handleHover}>
+                  onMouseLeave={this.handleHover}
+                  onClick={this.handleHover}>
                   <div></div><div></div><div></div>
             </div>
         </div>
@@ -181,11 +176,11 @@ class Navigation extends React.Component{
                   onMouseEnter={this.handleMenu} 
                   onMouseLeave={this.handleMenu}>
 
-            <li><a onClick={this.foo} href="#" target="_blank">Multi Page</a></li>
-            <li><a onClick={this.foo} href="#" target="_blank">Single Page</a></li>
-            <li><a onClick={this.foo} href="#" target="_blank">Blogs</a></li>
-            <li><a onClick={this.foo} href="#" target="_blank">Elements</a></li>
-            <li><a onClick={this.foo} href="#" target="_blank">Icons</a></li>
+            <li><a onClick={this.foo} href={yw} >Multi Page</a></li>
+            <li><a onClick={this.foo} href={yw} >Single Page</a></li>
+            <li><a onClick={this.foo} href={yw} >Blogs</a></li>
+            <li><a onClick={this.foo} href={yw} >Elements</a></li>
+            <li><a onClick={this.foo} href={yw} >Icons</a></li>
           </ul>
         </div>
       </Nav>     
