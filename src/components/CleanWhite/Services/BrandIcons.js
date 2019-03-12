@@ -6,6 +6,7 @@ const Box = styled.div`
     margin: 30px 0px;
     padding: 20px;
     background-color: var(--light-2);
+    text-align:center;
 
     .fas, .fab, .fa, far{
       font-size: 5rem;

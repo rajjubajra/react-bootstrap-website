@@ -24,6 +24,7 @@ ul.images > li{
     box-shadow: 1px 1px 4px #3333334f;
     background-size: cover;
     background-position: center;
+    filter: var(--grayscale);
 }
 `;
 

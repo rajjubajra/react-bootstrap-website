@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ReactHtmlParser from 'react-html-parser';
+import Button from './Button';
 
 const NewsBlock = styled.div`
 margin-bottom: 100px;
@@ -47,6 +48,7 @@ class LatestNews extends React.Component{
                 <h3>{item.title}</h3>
                 <div className="news-date">{item.field_news_date}</div>
                 {ReactHtmlParser(  item.field_news_contents.substring(300,0) )}
+                <Button />
               </NewsBlock>
             </div>
         )        

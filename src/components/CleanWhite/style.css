@@ -5,7 +5,9 @@
   --dark-3: #262626;
   --dark-2:#b7c2ce;
   --dark-1: #ebeef3;
+  --grayscale: grayscale(100%); 
 }
+
 
 .index-at-top{
   position: relative;
@@ -15,11 +17,14 @@
 h1{
   font-family: sans-serif;
   font-size: 3rem;
+  font-weight: 100;
 }
 
 h2{
   font-family: sans-serif;
   font-size: 2rem;
+  font-weight: 100;
+  text-transform: uppercase;
 }
 h3{
   font-family: sans-serif;
@@ -27,14 +32,10 @@ h3{
   font-weight: 100;
   letter-spacing: 0.15rem;
 }
-
 p{
   font-size: 1rem;
   font-weight: 100;
 }
-
-
-
 button{
   padding: 15px 30px;
   background-color: var(--light-3);
@@ -42,8 +43,8 @@ button{
   font-size: 1rem;
   font-weight: 100;
 }
-
-.read-all-button{
+.read-all-button,
+a.read-all-button{
   font-size: 0.9rem;
   letter-spacing: 0.3rem;
   font-weight: 100;
@@ -51,8 +52,13 @@ button{
   -ms-flex-item-align: end;
   align-self: flex-end;
   text-decoration: none;
+  color: var(--dark-3);
 }
 
 a.read-all-button:hover{
 text-decoration: none;
 } 
+
+img{
+  filter: grayscale(100%);
+}

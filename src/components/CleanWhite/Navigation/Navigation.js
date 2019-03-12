@@ -25,6 +25,7 @@ const Nav = styled.div`
   margin: 0px 20px;
   img{
     width: 50px;
+    filter: grayscale(1%);
   }
 }
 

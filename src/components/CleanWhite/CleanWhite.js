@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.css';
 import Navigation from './Navigation/Navigation';
 import Landing from './Landing/Landing';
 import Services from './Services/Services';
@@ -11,10 +12,8 @@ import Webdesign from './Webdesign/Webdesign';
 import Graphicdesign from './Graphicdesign/Graphicdesign';
 import News from './News/News';
 import Subscription from './Subscription/Subscription';
-
-import './style.css';
-
-
+import Contact from './Contact/Contact';
+import Quotation from './Quotation/Quotation';
 
 
 class CleanWhite extends React.Component{
@@ -97,8 +96,12 @@ class CleanWhite extends React.Component{
         <div className="row">
           <Subscription />
         </div>
-
-      
+        <div className="row">
+          <Contact  contactinformation={this.props.contactinformation} />
+        </div>
+        <div className="row">
+          <Quotation address={this.props.contactinformation} />
+        </div>
       </div>
     )
   }

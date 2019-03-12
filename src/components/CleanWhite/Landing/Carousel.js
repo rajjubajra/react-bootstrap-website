@@ -11,6 +11,7 @@ const CarouselItem = styled.div`
 width: 100%;
 height: 100vh;
 display: flex;
+text-align: center;
 
 .item{
   width: 100% !important;
@@ -22,6 +23,8 @@ display: flex;
   background-size: cover;
   background-position: right top;
   background-repeat: no-repeat;
+  filter: var(--grayscale);
+
 
   .entering{
     animation-name: ${fadeIn};
