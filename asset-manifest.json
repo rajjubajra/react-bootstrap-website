@@ -1,15 +1,15 @@
 {
-  "main.css": "/react-bootstrap-website/static/css/main.85a10fc4.chunk.css",
-  "main.js": "/react-bootstrap-website/static/js/main.8a51d715.chunk.js",
-  "main.js.map": "/react-bootstrap-website/static/js/main.8a51d715.chunk.js.map",
+  "main.css": "/react-bootstrap-website/static/css/main.efff4f46.chunk.css",
+  "main.js": "/react-bootstrap-website/static/js/main.597732b4.chunk.js",
+  "main.js.map": "/react-bootstrap-website/static/js/main.597732b4.chunk.js.map",
   "runtime~main.js": "/react-bootstrap-website/static/js/runtime~main.adb1370b.js",
   "runtime~main.js.map": "/react-bootstrap-website/static/js/runtime~main.adb1370b.js.map",
   "static/css/2.fc86d3ac.chunk.css": "/react-bootstrap-website/static/css/2.fc86d3ac.chunk.css",
-  "static/js/2.b9d6b1a1.chunk.js": "/react-bootstrap-website/static/js/2.b9d6b1a1.chunk.js",
-  "static/js/2.b9d6b1a1.chunk.js.map": "/react-bootstrap-website/static/js/2.b9d6b1a1.chunk.js.map",
+  "static/js/2.38f4b482.chunk.js": "/react-bootstrap-website/static/js/2.38f4b482.chunk.js",
+  "static/js/2.38f4b482.chunk.js.map": "/react-bootstrap-website/static/js/2.38f4b482.chunk.js.map",
   "index.html": "/react-bootstrap-website/index.html",
-  "precache-manifest.48ea6d0d5c7c8f6e77556f81ca1a433c.js": "/react-bootstrap-website/precache-manifest.48ea6d0d5c7c8f6e77556f81ca1a433c.js",
+  "precache-manifest.9346c0c4702e991ab2ec23a22a4d4de2.js": "/react-bootstrap-website/precache-manifest.9346c0c4702e991ab2ec23a22a4d4de2.js",
   "service-worker.js": "/react-bootstrap-website/service-worker.js",
   "static/css/2.fc86d3ac.chunk.css.map": "/react-bootstrap-website/static/css/2.fc86d3ac.chunk.css.map",
-  "static/css/main.85a10fc4.chunk.css.map": "/react-bootstrap-website/static/css/main.85a10fc4.chunk.css.map"
+  "static/css/main.efff4f46.chunk.css.map": "/react-bootstrap-website/static/css/main.efff4f46.chunk.css.map"
 }
