@@ -22,7 +22,7 @@ class LatestworkBrief extends React.Component{
     
     const view = this.props.latestwork.map((item)=>{
       return(
-        <Section>
+        <Section key={item.nid}>
           <h3>{item.title}</h3>
           {ReactHtmlParser(item.field_latest_work_brief)}
         </Section>

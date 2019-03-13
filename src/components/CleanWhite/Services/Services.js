@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import BrandIcons from './BrandIcons';
 import ServicesInColumn from './ServicesInColumn';
+import Title from './Title';
 
 const Page = styled.div`
   width: 100%;
@@ -13,15 +14,15 @@ const Page = styled.div`
 
 class Services extends React.Component{
 
-
+  
 
   render(props){
     return(
       <Page>
         <div className="container-fluid">
+          <Title />
           <BrandIcons serviceBrands={this.props.serviceBrands} />
-          <ServicesInColumn services={this.props.services} />
-         
+          <ServicesInColumn services={this.props.services} />     
         </div>
       </Page>      
     )

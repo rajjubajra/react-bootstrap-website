@@ -1,6 +1,19 @@
 import React from 'react';
 import Carousel from './Carousel';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
+import { NONAME } from 'dns';
+
+
+const scrollDownAnimation = keyframes`
+0%     { position: relative; top: -10px; text-shadow: 0px 1px 1px #ccc;  color: var(--dark-2);}
+15%    { position: relative; top: -7px;  text-shadow: 1px 1px 1px #ccc;  color: var(--dark-2); }
+30%    { position: relative; top: -4px;  text-shadow: 2px 1px 1px #ccc;  color: var(--dark-2); }     
+45%    { position: relative; top: -2px;  text-shadow: 3px 1px 1px #ccc;  color: var(--dark-3); }  
+60%    { position: relative; top: 0px;   text-shadow: 4px 1px 1px #ccc;  color: var(--dark-3); }
+75%    { position: relative; top: -3px;  text-shadow: 3px 1px 1px #ccc;  color: var(--dark-2); } 
+90%    { position: relative; top: -6px;  text-shadow: 2px 1px 1px #ccc;  color: var(--dark-2); }
+100%   { position: relative; top: -10px; text-shadow: 1px 1px 1px #ccc;  color: var(--dark-2);} 
+`;
 
 
 const Pages = styled.div`
@@ -8,6 +21,7 @@ const Pages = styled.div`
       display: flex;
       flex-direction: column;
       background-color: var(--light-1);
+      position: relative;
 
       section{
           width: 100%;
@@ -25,26 +39,57 @@ const Pages = styled.div`
           background-attachment: fixed;
 
 
-          div.item-list > ul > li{
-            list-style: none;
+          .fas{
+            font-weight: 900;
+            color: #fd0100;
+            font-size: 1.5rem;
+            z-index: 10;
+            animation-name: ${scrollDownAnimation};
+            animation-duration: 1.5s;
+            animation-iteration-count: infinite;
+            cursor: pointer;
           }
+
+          
       }
-
-
-
 `;
 
 class Landing extends React.Component{
-  
+  state = {
+    angleDown: true
+  }
 
+
+  componentDidMount(){
+
+    window.onscroll = ()=> {
+     // console.log('dopos', window.pageYOffset);
+      window.pageYOffset > 200 
+      ? this.setState({angleDown: false}) 
+      : this.setState({angleDown: true});
+    } 
+  }
+
+  
+  scrollSmooth = () => {  
+    window.scrollTo({
+      'behavior': 'smooth',
+      'left': 0,
+      'top': 600
+    });
+  }
 
   render(props){
+
+    const angleDownStyle = this.state.angleDown ? "fas fa-angle-down" : '';
+    const hideNav = this.state.angleDown ? 0 : 50;
+    
     const {bg_2, scrollingText} = this.props;
     return(
-      <Pages>
+      <Pages style={{zIndex: hideNav}}>
         <section>
-         
          <Carousel bg_2={bg_2}  scrollingText={scrollingText} /> 
+         <i onClick={this.scrollSmooth}  className={angleDownStyle} ></i>
         </section>
       </Pages>  
     )

@@ -27,7 +27,7 @@ class ServicesInColumn extends React.Component{
             <div className="col-md-4" key={item.nid}>
               <Box>
                 <h3>{item.title}</h3>
-                <p>{ReactHttpParser(item.field_services_contents.substring(200,0))}</p>
+                {ReactHttpParser(item.field_services_contents.substring(200,0))}
               </Box>
             </div>
           )

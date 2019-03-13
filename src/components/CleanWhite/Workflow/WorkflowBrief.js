@@ -18,7 +18,7 @@ class WorkflowBrief extends React.Component{
       return(
         <section key={item.nid}>
           <h3>{ReactHtmlParser(item.title)}</h3>
-          <p>{ReactHtmlParser(item.field_workflow_brief)}</p>
+              {ReactHtmlParser(item.field_workflow_brief)}
         </section>
       )
     })

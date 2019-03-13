@@ -22,7 +22,7 @@ class Text extends React.Component{
       return(
         <div key={item.nid}>
           <h3>{item.title}</h3>
-          <p>{ReactHtmlParser(item.field_call_action_content)}</p>
+          {ReactHtmlParser(item.field_call_action_content)}
         </div>
       )});   
       return view;  

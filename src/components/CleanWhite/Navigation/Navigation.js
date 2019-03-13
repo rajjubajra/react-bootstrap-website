@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 
 
-
 const Nav = styled.div`
     display: -webkit-box;
     display: -webkit-flex;
@@ -16,7 +15,7 @@ const Nav = styled.div`
     position: fixed;
     top: 0px;
     left: 0px;
-    background-color: var(--light-2);
+    background-color: var(--bgTrasparant);
     width: 100%;
     height: 77px;
     padding-top: 12px;
@@ -51,6 +50,7 @@ ul.main-menu > li{
     color: var(--dark-3);
     -webkit-transition: padding 0.4s; /* For Safari 3.1 to 6.0 */
     transition: padding 0.4s;
+    cursor: pointer;
   }
   a:hover{
     color: var(--dark-3);
@@ -130,6 +130,8 @@ class Navigation extends React.Component{
     }    
   }
 
+  
+
   handleHover = () => {
       this.state.isHovere === false 
         ? this.setState({isHovere: true}) 
@@ -151,14 +153,18 @@ class Navigation extends React.Component{
 }
   
 foo = () => {
-  alert(' click works ');
+  const yw = 'https://www.yellow-website.com';
+  window.open(yw, '_blank');
 }
+
+
+
 
 
 
   render(props){
     const {logo} = this.props;
-    const yw = 'https://www.yellow-website.com';
+   
     return(
       <Nav>
         <div className="header">
@@ -177,11 +183,11 @@ foo = () => {
                   onMouseEnter={this.handleMenu} 
                   onMouseLeave={this.handleMenu}>
 
-            <li><a onClick={this.foo} href={yw} >Multi Page</a></li>
-            <li><a onClick={this.foo} href={yw} >Single Page</a></li>
-            <li><a onClick={this.foo} href={yw} >Blogs</a></li>
-            <li><a onClick={this.foo} href={yw} >Elements</a></li>
-            <li><a onClick={this.foo} href={yw} >Icons</a></li>
+            <li><a onClick={this.foo} >Multi Page</a></li>
+            <li><a onClick={this.foo} >Single Page</a></li>
+            <li><a onClick={this.foo} >Blogs</a></li>
+            <li><a onClick={this.foo} >Elements</a></li>
+            <li><a onClick={this.foo} >Icons</a></li>
           </ul>
         </div>
       </Nav>     

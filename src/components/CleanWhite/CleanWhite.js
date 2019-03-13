@@ -14,6 +14,7 @@ import News from './News/News';
 import Subscription from './Subscription/Subscription';
 import Contact from './Contact/Contact';
 import Quotation from './Quotation/Quotation';
+import Footer from './Footer/Footer';
 
 
 class CleanWhite extends React.Component{
@@ -26,21 +27,23 @@ class CleanWhite extends React.Component{
 
 
   componentDidMount(props){
+   
+    //get Image data
     const {images } = this.props;
     const url =  'http://yellow-website.com';
     images.map((image)=>{
       return  image.field_image_name === 'bg-2' 
         && this.setState({landingPageBg: url + image.field_image_rest_api})
     });
-  }
 
+  }
 
   render(props){
     const { logo  } = this.props;
     
     return(
       <div className="container-fluid">
-        <div className="row index-at-top">
+        <div className="row index-at-top" >
             <Navigation logo={logo} />
         </div>
         <div className="row">    
@@ -101,6 +104,12 @@ class CleanWhite extends React.Component{
         </div>
         <div className="row">
           <Quotation address={this.props.contactinformation} />
+        </div>
+
+
+
+        <div className="row footer">
+          <Footer />
         </div>
       </div>
     )

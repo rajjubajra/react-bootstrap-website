@@ -18,7 +18,7 @@ align-items: center;
 class Address extends React.Component{
   getAddress = (props) => {
     const view = this.props.address.map((item)=>{
-      return <div>{item.field_contact_information}</div>
+      return <div key={item.nid}>{item.field_contact_information}</div>
     })
     return view;
   }
