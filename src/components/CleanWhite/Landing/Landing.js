@@ -20,7 +20,6 @@ const Pages = styled.div`
       width: 100%;
       display: flex;
       flex-direction: column;
-      background-color: var(--light-1);
       position: relative;
 
       section{
@@ -44,8 +43,11 @@ const Pages = styled.div`
             color: #fd0100;
             font-size: 1.5rem;
             z-index: 10;
+            -webkit-animation-name: ${scrollDownAnimation};
             animation-name: ${scrollDownAnimation};
+            -webkit-animation-duration: 1.5s;
             animation-duration: 1.5s;
+            -webkit-animation-iteration-count: infinite;
             animation-iteration-count: infinite;
             cursor: pointer;
           }

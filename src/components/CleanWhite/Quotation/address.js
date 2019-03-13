@@ -18,6 +18,9 @@ p > i{
   padding: 0px 10px 0px 0px;
   color: var(--dark-2);
 }
+.fa, .fab, .fal, .far, .fas {
+  text-shadow: 0px 0px 0px #555;
+}
 `;
 
 

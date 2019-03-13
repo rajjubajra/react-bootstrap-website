@@ -49,6 +49,9 @@ div.contact{
   letter-spacing: 1px;
   font-size: 0.9rem;
 }
+.fa, .fab, .fal, .far, .fas {
+  text-shadow: 0px 0px 0px #555;
+}
 
 `;
 

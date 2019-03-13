@@ -11,7 +11,7 @@
 }
 
 
-body{
+body, .container-fluid{
   background: var(--background);
 }
 
@@ -78,4 +78,9 @@ img{
   filter: grayscale(100%);
   border: 0.4rem solid #fff;
   box-shadow: 1px 1px 4px #3333334f;
+}
+
+.fa, .fab, .fal, .far, .fas{
+  color: var(--dark-2);
+  text-shadow: 1px 1px 1px #555;
 }

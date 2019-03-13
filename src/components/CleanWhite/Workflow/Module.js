@@ -24,8 +24,6 @@ li{
     padding: 70px 0px;
     border: 1px solid #ddd;
     margin-bottom: 30px;
-    color: var(--dark-2);
-    text-shadow: 1px 1px 1px #555;
 }
 
 h4{

@@ -11,7 +11,7 @@ padding: 20px;
 
     i{
       position: absolute;
-      right: 30px;
+      right: 36px;
       font-size: 2rem;
     }
 

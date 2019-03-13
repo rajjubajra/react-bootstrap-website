@@ -5,14 +5,11 @@ import ReactHtmlParser from 'react-html-parser';
 const Box = styled.div`
 margin: 30px 0px;
 padding: 20px;
-border: 0.01rem solid var(--light-1);
 text-align: center;
 
     .fas, .fab, .fa, far{
       font-size: 3rem;
       padding: 20px;
-      color: var(--dark-2);
-      text-shadow: 1px 1px 1px #000;
     }
 
 `;
