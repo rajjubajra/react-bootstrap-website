@@ -4,7 +4,7 @@
   --light-2: #ebeef3;
   --light-1: #f9fafc;
   --dark-3: #262626;
-  --dark-2:#b7c2ce;
+  --dark-2:#919394;
   --dark-1: #ebeef3;
   --grayscale: grayscale(100%); 
   --bgTrasparant: rgba(235,238,243,0.77);
@@ -36,19 +36,26 @@ h2{
 }
 h3{
   font-family: sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 100;
-  letter-spacing: 0.15rem;
+  letter-spacing: 0.11rem;
+}
+h4{
+  font-family: sans-serif;
+  font-size: 1rem;
+  font-weight: 100;
+  letter-spacing: 0rem;
+  text-transform: uppercase;
 }
 p{
   font-size: 1rem;
   font-weight: 100;
 }
 button{
-  padding: 15px 30px;
-  background-color: var(--light-3);
-  color: var(--dark-3);
-  font-size: 1rem;
+  padding: 5px 50px;
+  background-color: var(--dark-3);
+  color: var(--dark-1);
+  font-size: 0.9rem;
   font-weight: 100;
 }
 .read-all-button,
@@ -69,4 +76,6 @@ text-decoration: none;
 
 img{
   filter: grayscale(100%);
+  border: 0.4rem solid #fff;
+  box-shadow: 1px 1px 4px #3333334f;
 }

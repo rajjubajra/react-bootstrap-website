@@ -22,6 +22,7 @@ class CleanWhite extends React.Component{
     super();
     this.state = {
       landingPageBg: '',
+      yPosition: 0,
     }
   }
 
@@ -36,21 +37,30 @@ class CleanWhite extends React.Component{
         && this.setState({landingPageBg: url + image.field_image_rest_api})
     });
 
+    window.onscroll = () => {
+      const yPosition = window.pageYOffset;
+      this.setState({yPosition: yPosition});
+    }
+
   }
 
   render(props){
     const { logo  } = this.props;
-    
+    console.log('Index page position: ', this.state.yPosition);
     return(
       <div className="container-fluid">
         <div className="row index-at-top" >
-            <Navigation logo={logo} />
+            <Navigation 
+              logo={logo} 
+              yPosition={this.state.yPosition}
+            />
         </div>
         <div className="row">    
             <Landing 
                 bg_2={this.state.landingPageBg} 
                 images={this.props.images}
                 scrollingText={this.props.scrollingText}
+                yPosition={this.state.yPosition}
                 />
         </div>
         <div className="row">

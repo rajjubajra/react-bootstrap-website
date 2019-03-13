@@ -2,8 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-
 const Nav = styled.div`
+
+#hide{
+  display: none;
+}
+#show{
+  display: flex;
+}
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -25,6 +31,8 @@ const Nav = styled.div`
   img{
     width: 50px;
     filter: grayscale(1%);
+    border: 0px;
+    box-shadow: 0px 0px 0px;
   }
 }
 
@@ -127,7 +135,9 @@ class Navigation extends React.Component{
     this.state = {
       isHovere: false,
       isMobileMenu: false,
+      navBar: true,
     }    
+
   }
 
   
@@ -158,12 +168,10 @@ foo = () => {
 }
 
 
-
-
-
-
   render(props){
-    const {logo} = this.props;
+    const {logo, yPosition } = this.props;    
+    //add show or hide id on Navigation bar
+    const showHide = yPosition < 200 ? 'show' : 'hide';
    
     return(
       <Nav>
@@ -178,7 +186,7 @@ foo = () => {
             </div>
         </div>
         
-        <div>
+        <div id={showHide} >
           <ul className="main-menu" 
                   onMouseEnter={this.handleMenu} 
                   onMouseLeave={this.handleMenu}>

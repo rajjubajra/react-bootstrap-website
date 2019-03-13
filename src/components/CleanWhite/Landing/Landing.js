@@ -1,7 +1,7 @@
 import React from 'react';
 import Carousel from './Carousel';
 import styled, {keyframes} from 'styled-components';
-import { NONAME } from 'dns';
+
 
 
 const scrollDownAnimation = keyframes`
@@ -55,22 +55,9 @@ const Pages = styled.div`
 `;
 
 class Landing extends React.Component{
-  state = {
-    angleDown: true
-  }
-
-
-  componentDidMount(){
-
-    window.onscroll = ()=> {
-     // console.log('dopos', window.pageYOffset);
-      window.pageYOffset > 200 
-      ? this.setState({angleDown: false}) 
-      : this.setState({angleDown: true});
-    } 
-  }
-
   
+
+  //scroll window on click 
   scrollSmooth = () => {  
     window.scrollTo({
       'behavior': 'smooth',
@@ -81,17 +68,18 @@ class Landing extends React.Component{
 
   render(props){
 
-    const angleDownStyle = this.state.angleDown ? "fas fa-angle-down" : '';
-    const hideNav = this.state.angleDown ? 0 : 50;
+    const yPosition = this.props.yPosition;
+    //show hide angle down arrow 
+    const angleDownStyle = yPosition < 200 ? "fas fa-angle-down" : '';
     
     const {bg_2, scrollingText} = this.props;
     return(
-      <Pages style={{zIndex: hideNav}}>
+      <Pages>
         <section>
          <Carousel bg_2={bg_2}  scrollingText={scrollingText} /> 
          <i onClick={this.scrollSmooth}  className={angleDownStyle} ></i>
         </section>
-      </Pages>  
+      </Pages> 
     )
   }
 

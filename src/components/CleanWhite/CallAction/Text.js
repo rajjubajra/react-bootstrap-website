@@ -11,7 +11,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-background-color: var(--light-1);
+
 `;
 
 class Text extends React.Component{

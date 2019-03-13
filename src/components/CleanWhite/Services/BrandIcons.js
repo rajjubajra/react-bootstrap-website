@@ -3,14 +3,16 @@ import styled from 'styled-components';
 import ReactHtmlParser from 'react-html-parser';
 
 const Box = styled.div`
-    margin: 30px 0px;
-    padding: 20px;
-    background-color: var(--light-2);
-    text-align:center;
+margin: 30px 0px;
+padding: 20px;
+border: 0.01rem solid var(--light-1);
+text-align: center;
 
     .fas, .fab, .fa, far{
-      font-size: 5rem;
+      font-size: 3rem;
       padding: 20px;
+      color: var(--dark-2);
+      text-shadow: 1px 1px 1px #000;
     }
 
 `;
@@ -24,7 +26,7 @@ class BrandIcons extends React.Component{
             <div className="col" key={item.nid}>
               <Box>
                 <div>{ReactHtmlParser(item.field_service_fontawesome_icons)}</div>
-                <h3>{item.field_service_brand_name}</h3>
+                <h4>{item.field_service_brand_name}</h4>
               </Box>
             </div>
               )

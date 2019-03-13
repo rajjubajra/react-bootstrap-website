@@ -5,7 +5,7 @@ import ReactHttpParser from 'react-html-parser';
 const Box = styled.div`
   width: 100%;
   min-height: 300px;
-  background-color: var(--light-1);
+ 
   
   h3{
     text-align: center;

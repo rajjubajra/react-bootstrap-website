@@ -24,11 +24,15 @@ li{
     padding: 70px 0px;
     border: 1px solid #ddd;
     margin-bottom: 30px;
+    color: var(--dark-2);
+    text-shadow: 1px 1px 1px #555;
 }
 
-h3{
+h4{
     border: 1px solid #ddd;
     padding: 10px 0px;
+    background-color: var(--dark-2);
+    color: var(--dark-1);
 }
 
 `;
@@ -41,7 +45,7 @@ class Module extends React.Component{
     const view = this.props.workflowmodule.map((item)=>{
       return(<li key={item.nid}>
         {ReactHtmlParser(item.field_workflow_icon)}
-        <h3>{item.field_workflow_title}</h3>
+        <h4>{item.field_workflow_title}</h4>
       </li>);
     })
     return view ;

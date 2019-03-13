@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 const Image = styled.div`
  img{
-   width: 100%;
-   margin: 10px 0px;
-   border: 1px solid var(--light-3);
+  width: 100%;
+  margin: 10px 0px;
+  
  }
 
 `;
