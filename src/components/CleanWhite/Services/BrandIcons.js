@@ -7,7 +7,7 @@ margin: 30px 0px;
 padding: 20px;
 text-align: center;
 
-    .fas, .fab, .fa, far{
+    .fas, .fab, .fa, .far{
       font-size: 3rem;
       padding: 20px;
     }
@@ -17,6 +17,14 @@ text-align: center;
 
 class BrandIcons extends React.Component{
 
+      componentDidMount(){
+        window.onscroll = () => {
+          console.log('pagY',window.pageYOffset);
+        }
+      }
+
+
+      // map json data for view
       mapData = (props) => {
         const view =   this.props.serviceBrands.map((item)=>{
         return(     

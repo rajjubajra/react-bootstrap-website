@@ -11,11 +11,15 @@ align-items: center;
 `;
 
 
+const Button = (props) => {
 
-const Button = () => (
-<Btn>
-  <h3>Get Quotation</h3>
-  <button>Message us</button>
-</Btn>
-)
+const label = props.showHide === true ? 'Message us' : 'Close message form'
+
+      return(
+      <Btn>
+        <h3>Get Quotation</h3>
+        <button onClick={props.messageForm} >{label}</button>
+      </Btn>
+      )
+}
 export default Button;
