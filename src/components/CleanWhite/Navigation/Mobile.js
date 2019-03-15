@@ -2,74 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const Nav = styled.div`
-
-#hide{
-  display: none;
-}
-#show{
-  display: flex;
-}
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    background-color: var(--bgTrasparant);
-    width: 100%;
-    height: 77px;
-    padding-top: 12px;
-
-.logo{
-  margin: 0px 20px;
-  img{
-    width: 50px;
-    filter: grayscale(1%);
-    border: 0px;
-    box-shadow: 0px 0px 0px;
-  }
-}
-
-
-ul.main-menu{
-    height: 54px;
-    margin-right: 20px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-ul.main-menu > li{
-  list-style: none; 
-  a{
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 0px 15px;
-    margin: 0px 5px;
-    color: var(--dark-3);
-    -webkit-transition: padding 0.4s; /* For Safari 3.1 to 6.0 */
-    transition: padding 0.4s;
-    cursor: pointer;
-  }
-  a:hover{
-    color: var(--dark-3);
-    padding-bottom: 28px;
-    border-bottom: 1px solid var(--dark-2);
-    -webkit-transition: padding 0.4s; /* For Safari 3.1 to 6.0 */
-    transition: padding 0.4s;
-  }
-}
-
-
+const NavMobile = styled.div`
 
 @media only screen and (max-width: 700px) {
 
@@ -128,19 +61,7 @@ ul.main-menu > li{
 `;
 
 
-
-class Navigation extends React.Component{
-  constructor(){
-    super();
-    this.state = {
-      isHovere: false,
-      isMobileMenu: false,
-      navBar: true,
-    }    
-
-  }
-
-  
+class Mobile extends React.Component{  
 
   handleHover = () => {
       this.state.isHovere === false 
@@ -172,20 +93,9 @@ foo = () => {
     const {logo, yPosition } = this.props;    
     //add show or hide id on Navigation bar
     const showHide = yPosition < 200 ? 'show' : 'hide';
-    const opacity = yPosition  < 200 ? 'rgba(235,238,243,0.77)' : 'rgba(235,238,243,0.0)';
    
     return(
-      <Nav style={{backgroundColor:opacity}}>
-        <div className="header">
-          <div className="logo"><img src={logo} alt="logo" /></div>
-          {/**  mobile app line icon for drop down menu */}
-            <div  className="line-button" 
-                  onMouseEnter={this.handleHover} 
-                  onMouseLeave={this.handleHover}
-                  onClick={this.handleHover}>
-                  <div></div><div></div><div></div>
-            </div>
-        </div>
+      <NavMobile>
         
         <div id={showHide} >
           <ul className="main-menu" 
@@ -199,8 +109,8 @@ foo = () => {
             <li><a onClick={this.foo} >Icons</a></li>
           </ul>
         </div>
-      </Nav>     
+      </NavMobile>     
     )
   }
 }
-export default Navigation;
+export default Mobile;

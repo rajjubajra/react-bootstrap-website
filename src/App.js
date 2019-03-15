@@ -30,6 +30,7 @@ class App extends Component {
       graphicdesign: [],
       latestnews: [],
       contactinformation:[],
+      reviews: [],
       isLoaded: false
     }
     this.refresh = this.refresh.bind(this)
@@ -175,9 +176,17 @@ class App extends Component {
                 if(contactinformation.data) {
                   this.setState({
                             contactinformation: contactinformation.data,
-                            isLoaded: true
                   })
                 }
+
+                 //Get Review data
+                 const reviews = await axios.get('/rest/reviews') // wait for the AJAX request to complete
+                 if(reviews.data) {
+                   this.setState({
+                             reviews: reviews.data,
+                             isLoaded: true
+                   })
+                 }
  
 
  
@@ -213,6 +222,7 @@ class App extends Component {
                 graphicdesign={this.state.graphicdesign}
                 latestnews={this.state.latestnews}
                 contactinformation={this.state.contactinformation}
+                reviews={this.state.reviews}
                 />
         :  <Loading />
         }

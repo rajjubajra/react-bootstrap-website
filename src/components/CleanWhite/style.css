@@ -8,6 +8,7 @@
   --dark-1: #ebeef3;
   --grayscale: grayscale(100%); 
   --bgTrasparant: rgba(235,238,243,0.77);
+  --bgTrasparant-full: rgba(235,238,243,0.0);
 }
 
 

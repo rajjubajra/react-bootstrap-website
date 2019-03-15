@@ -95,7 +95,7 @@ class CleanWhite extends React.Component{
           />
         </div>
         <div className="row">
-          <Reviews />
+          <Reviews reviews={this.props.reviews} />
         </div>
         <div className="row">
           <Webdesign webdesign={this.props.webdesign} />
