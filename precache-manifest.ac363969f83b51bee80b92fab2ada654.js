@@ -4,23 +4,23 @@ self.__precacheManifest = [
     "url": "/react-bootstrap-website/static/js/runtime~main.adb1370b.js"
   },
   {
-    "revision": "a77b225543a24b76dbe2",
-    "url": "/react-bootstrap-website/static/js/main.d7fe0b7d.chunk.js"
+    "revision": "c66142e6a80b4c6fc235",
+    "url": "/react-bootstrap-website/static/js/main.d9dda7d0.chunk.js"
   },
   {
     "revision": "7615e4dfa76443ae10f5",
     "url": "/react-bootstrap-website/static/js/2.dde7d19c.chunk.js"
   },
   {
-    "revision": "a77b225543a24b76dbe2",
-    "url": "/react-bootstrap-website/static/css/main.8438d3ca.chunk.css"
+    "revision": "c66142e6a80b4c6fc235",
+    "url": "/react-bootstrap-website/static/css/main.e529a305.chunk.css"
   },
   {
     "revision": "7615e4dfa76443ae10f5",
     "url": "/react-bootstrap-website/static/css/2.fc86d3ac.chunk.css"
   },
   {
-    "revision": "c8da1d05ca12a89e56133ea45d3236f7",
+    "revision": "a1721af9ebb4e24442816c1e74e169dc",
     "url": "/react-bootstrap-website/index.html"
   }
 ];
