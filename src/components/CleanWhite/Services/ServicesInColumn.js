@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ReactHttpParser from 'react-html-parser';
+import Button from './Button';
 
 const Box = styled.div`
   width: 100%;
@@ -28,6 +29,7 @@ class ServicesInColumn extends React.Component{
               <Box>
                 <h3>{item.title}</h3>
                 {ReactHttpParser(item.field_services_contents.substring(200,0))}
+                <Button id={item.nid} />
               </Box>
             </div>
           )

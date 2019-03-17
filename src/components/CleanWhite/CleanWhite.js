@@ -95,10 +95,16 @@ class CleanWhite extends React.Component{
           />
         </div>
         <div className="row">
-          <Reviews reviews={this.props.reviews} />
+          <Reviews 
+              reviews={this.props.reviews} 
+              yPosition={this.state.yPosition}
+          />
         </div>
         <div className="row">
-          <Webdesign webdesign={this.props.webdesign} />
+          <Webdesign 
+              webdesign={this.props.webdesign} 
+              yPosition={this.state.yPosition}
+          />
         </div>
         <div className="row">
           <Graphicdesign graphicdesign={this.props.graphicdesign} />

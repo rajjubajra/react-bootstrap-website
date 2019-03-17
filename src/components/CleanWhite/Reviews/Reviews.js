@@ -7,9 +7,24 @@ const animate = keyframes`
 100%{ opacity: 1; letter-spacing: 1px; text-align: center;}
 `;
 
-const anmiDuration = 2000;
+const appear = keyframes`
+from {opacity: 0; }
+to   {opacity: 1; }
+`;
+
 
 const Section = styled.section`
+
+#view{
+  display: flex;
+  animation-name: ${appear};
+  animation-duration: 4s;
+
+}
+#hide{
+  display: none;
+}
+
 width: 100%
 min-height: 300px;
 margin-top: 100px;
@@ -92,20 +107,19 @@ class Reviews extends React.Component{
 
 
   render(props){
-      const { reviews } = this.props;
+      const { reviews, yPosition } = this.props;
       let num = this.state.counter;
+      let appear = yPosition > 3600 ? 'view' : 'hide';
      return(
       <Section>
-        <div className="reviews ">
-          <div className={this.state.animate}>
-              <h3>Reviews</h3>
-              <div className="date">{reviews[num].field_review_date}</div>
-              {ReactHtmlParser(reviews[num].field_review)}
-              {reviews[num].field_review_by}
-          </div>
-          
+        <div id={appear} className="reviews">
+              <div className={this.state.animate}>
+                  <h3>Reviews</h3>
+                  <div className="date">{reviews[num].field_review_date}</div>
+                  {ReactHtmlParser(reviews[num].field_review)}
+                  <i> - {reviews[num].field_review_by}</i>
+              </div>
         </div>
-      
       </Section>
     )
   }
