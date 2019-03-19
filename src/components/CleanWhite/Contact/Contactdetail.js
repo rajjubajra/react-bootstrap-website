@@ -8,6 +8,21 @@ margin-bottom: 100px;
 display: flex;
 justify-content: center;
 
+@media (max-width: 576px){
+  -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  .icon{
+    width: 61px;
+    margin: 0px auto;
+  }
+  .title{
+    text-align: center;
+  }
+}
+
 h2{
   text-align: center;
 }

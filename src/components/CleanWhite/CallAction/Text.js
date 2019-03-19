@@ -5,7 +5,7 @@ import ReactHtmlParser from 'react-html-parser';
 
 const Box = styled.div`
 width: 100%;
-min-height: 300px;
+min-height: 350px;
 padding: 0px 20px;
 display: flex;
 flex-direction: column;

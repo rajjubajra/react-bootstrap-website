@@ -14,9 +14,18 @@ const disappear = keyframes`
 100% { opacity: 0;}
 `;
 
+const Div = styled.div`
+.row {
+  height: 100vh;
+width: 100%;
+justify-content: center;
+align-items: center;
+}
+
+`;
+
 
 const Box = styled.div`
-height: 100vh;
 display: flex;
 
 #view{
@@ -48,7 +57,7 @@ class Webdesign extends React.Component{
     const {yPosition} = this.props;
     let appear = yPosition > 4000 ? 'view' : this.hidintTohide() ;
     return(
-      <div className="container-fluid">
+      <Div className="container-fluid">
         <div className="row">
               <div  className="col-md-6">    
                 <Box><div id={appear} ><Image webdesign={this.props.webdesign} /></div></Box>
@@ -58,7 +67,7 @@ class Webdesign extends React.Component{
               </div>
           
         </div>
-      </div>
+      </Div>
     )
   }
 }

@@ -7,8 +7,9 @@ display: flex;
 justify-content: center;
 text-aling: center;
 p, p > a{
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--dark-3);
+  text-align: center;
 }
 
 `;

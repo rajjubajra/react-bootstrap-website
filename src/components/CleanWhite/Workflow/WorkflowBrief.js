@@ -4,7 +4,7 @@ import ReactHtmlParser from 'react-html-parser';
 
 const Page = styled.div`
 width: 100%;
-min-height: 600px;
+min-height: 500px;
 display: flex;
 flex-direction: column;
 justify-content: center;

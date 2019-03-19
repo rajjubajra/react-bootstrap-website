@@ -9,10 +9,17 @@ display: flex;
 justify-content:center;
 align-items: center;
 
-ul.images{
+> div{
   width: 100%;
   display:flex;
   justify-content: center;
+  height: 350px;
+    border: 0.5rem solid #fff;
+    margin: 10px;
+    box-shadow: 1px 1px 4px #3333334f;
+    background-size: cover;
+    background-position: center;
+    filter: var(--grayscale);
 }
 
 ul.images > li{
@@ -60,12 +67,10 @@ class Images extends React.Component{
     const {v_1, v_2, v_3} = this.state;
   
     return(
-      <Div>
-        <ul className="images">
-              <li style={{backgroundImage:`url("${v_1}")`}}></li>
-              <li style={{backgroundImage:`url("${v_2}")`}}></li>
-              <li style={{backgroundImage:`url("${v_3}")`}}></li>
-        </ul>
+      <Div className="row">
+              <div className="col" style={{backgroundImage:`url("${v_1}")`}}></div>
+              <div className="col" style={{backgroundImage:`url("${v_2}")`}}></div>
+              <div className="col" style={{backgroundImage:`url("${v_3}")`}}></div>
       </Div>
     )
   }

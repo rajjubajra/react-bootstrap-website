@@ -5,7 +5,6 @@ import Button from './Button';
 
 const Div = styled.div`
 width: 100%;
-height: 600px;
 display:flex;
 justify-content: center;
 align-items: center;

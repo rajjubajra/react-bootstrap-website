@@ -6,6 +6,7 @@ import ReactHtmlParser from 'react-html-parser';
 const Section = styled.section`
   width: 80%;
   margin: 0px auto;
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;

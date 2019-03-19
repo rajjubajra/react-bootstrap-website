@@ -2,6 +2,34 @@ import React from 'react';
 import styled from  'styled-components';
 import ReactHtmlParser from 'react-html-parser';
 
+const Page = styled.div`
+width: 100%;
+min-height: 500px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items; cetner;
+
+.fas, .fab, fa{
+  width: 100%;
+  font-size: 4rem;
+  padding: 70px 0px;
+  border: 1px solid #ddd;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h4{
+  border: 1px solid #ddd;
+  padding: 10px 0px;
+  background-color: var(--dark-2);
+  color: var(--dark-1);
+  text-align: center;
+}
+
+
+`;
+
 
 const Ul = styled.ul`
 width: 100%;
@@ -19,19 +47,9 @@ li{
   flex-direction: column;
 }
 
-.fas, .fab, fa{
-    font-size: 4rem;
-    padding: 70px 0px;
-    border: 1px solid #ddd;
-    margin-bottom: 30px;
-}
 
-h4{
-    border: 1px solid #ddd;
-    padding: 10px 0px;
-    background-color: var(--dark-2);
-    color: var(--dark-1);
-}
+
+
 
 `;
 
@@ -41,10 +59,10 @@ class Module extends React.Component{
   WorkFlowData = (props) => {
    
     const view = this.props.workflowmodule.map((item)=>{
-      return(<li key={item.nid}>
+      return(<div className="col-md-4" key={item.nid}>
         {ReactHtmlParser(item.field_workflow_icon)}
         <h4>{item.field_workflow_title}</h4>
-      </li>);
+      </div>);
     })
     return view ;
   }
@@ -53,9 +71,14 @@ class Module extends React.Component{
   render(props){
 
     return(
-        <Ul>
+      <Page>
+        <div className="container-fluid">
+         <div className="row">
             {this.WorkFlowData()}
-        </Ul>
+         </div>
+       </div>
+      </Page>
+       
     )
   }
 }
