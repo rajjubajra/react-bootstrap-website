@@ -10,6 +10,15 @@ flex-direction: column;
 h3, h2{
   text-align: center;
 }
+
+@media(max-width: 576px){
+  .read-all-button{
+    position:relative;
+    top: 35px;
+    letter-spacing: 1px;
+  }
+  
+}
 `;
 
 

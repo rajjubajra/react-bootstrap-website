@@ -78,18 +78,18 @@ class MessageForm extends React.Component{
           <h3>Message Form: </h3>
         <form>
             <div className="form-group">
-              <label for="InputName">Name</label>
-              <input type="text" class="form-control" id="Inputname" aria-describedby="nameHelp" placeholder="Enter name" />
-              <small id="namehelp" class="form-text text-muted"></small>
+              <label htmlFor="InputName">Name</label>
+              <input type="text" className="form-control" id="Inputname" aria-describedby="nameHelp" placeholder="Enter name" />
+              <small id="namehelp" className="form-text text-muted"></small>
             </div>
             <div className="form-group">
-              <label for="InputEmail1">Email</label>
-              <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
-              <small id="emailHelp" class="form-text text-muted"></small>
+              <label htmlFor="InputEmail1">Email</label>
+              <input type="email" className="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+              <small id="emailHelp" className="form-text text-muted"></small>
             </div>
             <div className="form-group">
-              <label for="InputPassword1">Message</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <label htmlFor="InputPassword1">Message</label>
+              <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
             <button>Submit</button>
         </form>

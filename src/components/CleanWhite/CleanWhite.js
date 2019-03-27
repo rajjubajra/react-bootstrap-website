@@ -45,8 +45,8 @@ class CleanWhite extends React.Component{
   }
 
   render(props){
+    console.log(this.props.scrollingText);
     const { logo  } = this.props;
-    console.log('Index page position: ', this.state.yPosition);
     return(
       <div className="container-fluid">
         <div className="row index-at-top" >
@@ -121,9 +121,7 @@ class CleanWhite extends React.Component{
         <div className="row">
           <Quotation address={this.props.contactinformation} />
         </div>
-
-
-
+        
         <div className="row footer">
           <Footer />
         </div>

@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
-import CleanWhite from './components/CleanWhite/CleanWhite';
 import events from 'events';
-import ajax from './Restapi/ajax';
-import Loading from './Loading';
-import logo from './logo.png';
-
-
+import ajax from './ajax';
+import Loading from '../Loading';
 
 
 // Create an emitter object so that we can do pub/sub
 const emitter = new events.EventEmitter();
 
 
-class App extends Component {
+class Data extends Component {
   constructor() {
     super()
     this.state = {
@@ -200,41 +196,30 @@ class App extends Component {
   }
 
 
-
-
   render() {
     
     return (
-      <div className="App">
-
-
-        {/** isLoaded must be used if not it will run empty state.data */}
-        {this.state.isLoaded === true
-        ?  <CleanWhite 
-                logo={logo} 
-                images={this.state.images}
-                scrollingText={this.state.scrollingText}
-                serviceBrands={this.state.servicebrands}
-                services={this.state.services}
-                callAction={this.state.callAction}
-                workflowmodule={this.state.workflowmodule}
-                workflow={this.state.workflow}
-                latestwork={this.state.latestwork}
-                workgallery={this.state.workgallery}
-                featureTitle={this.state.featureTitle}
-                features={this.state.features}
-                webdesign={this.state.webdesign}
-                graphicdesign={this.state.graphicdesign}
-                latestnews={this.state.latestnews}
-                contactinformation={this.state.contactinformation}
-                reviews={this.state.reviews}
-                />
-        :  <Loading />
-        }
-       
+      <div className="Data">
+          {
+            this.state.isLoaded === true 
+            ? <ScrollingText data={this.state.scrollingText} />
+            : <Loading />
+          }
       </div>
     );
   }
 }
+export default Data;
 
-export default App;
+
+export const ScrollingText = () => {
+ 
+  return(
+    <div>
+      <h1>This is test Data</h1>
+     
+    </div>
+     
+  )
+}
+  

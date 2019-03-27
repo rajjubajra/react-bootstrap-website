@@ -8,9 +8,9 @@ margin-bottom: 100px;
 
 .row {
   height: 100vh;
-width: 100%;
-justify-content: center;
-align-items: center;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 `;
 

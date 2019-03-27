@@ -59,7 +59,8 @@ class Module extends React.Component{
   WorkFlowData = (props) => {
    
     const view = this.props.workflowmodule.map((item)=>{
-      return(<div className="col-md-4" key={item.nid}>
+      return(
+      <div className="col-md-4" key={item.nid}>
         {ReactHtmlParser(item.field_workflow_icon)}
         <h4>{item.field_workflow_title}</h4>
       </div>);

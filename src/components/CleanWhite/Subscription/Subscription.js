@@ -18,12 +18,14 @@ input[type='text']{
   padding: 10px;
   width: 200px;
   font-size: 0.9rem;
+  border-radius: 0px;
 }
 button{
     padding: 11px 24px;
     background-color: var(--dark-2);
     font-size: 0.9rem;
     color: var(--light-1);
+    border: 0px;
 }
 
 `;

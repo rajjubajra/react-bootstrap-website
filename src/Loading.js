@@ -1,33 +1,41 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 
-const Page = styled.div`
-section{
-  display:flex;
+
+const ColorChange = keyframes`
+0% {color:var(--red);      transform:rotate(72deg)}
+25% {color: var(--orange); transform:rotate(144deg)}
+50% {color: var(--yellow); transform:rotate(216deg)}
+75% {color: var(--orange); transform:rotate(288deg)}
+100% {color: var(--red);   transform:rotate(360deg)}
+`;
+
+
+const LoadingDiv = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100vh;
-}
+
+  i{
+    font-size: 3rem;
+    animation: ${ColorChange} 0.5s infinite;
+    text-shadow: 0px 0px 0px;
+  }
+
 
 `;
 
+
+
 const Loading = () => (
-  <Page> 
-   <section>
-           <div className="left">
-               <section>
-                 <h1 style={{color: '#666', fontSize: '15vh'}}>
-                 <i className="fas fa-spinner fa-pulse"></i></h1>
-                 <p style={{color: '#666'}}>Loading..</p>
-               </section>
-               
-           </div>
-           <div className="right">
-              
-           </div>
-  </section>
-  </Page>
+  <div className="col-md-12">
+      <LoadingDiv>                    
+        <i className="fas fa-circle-notch"></i>
+        <p>Loading ...</p>                  
+      </LoadingDiv>
+  </div>
 )
 export default Loading;
