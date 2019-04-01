@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import config from '../../../Restapi/config';
+import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
 const Form = styled.div`
     width: 90%;
@@ -7,6 +9,10 @@ const Form = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    .text-muted{
+      height: 10px;
+    }
 
     label{
       margin: 0px 0px 0px 2px;
@@ -66,9 +72,62 @@ const Form = styled.div`
 `;
 
 class MessageForm extends React.Component{
+  state = {
+    name: '',
+    email: '',
+    message: '',
+    err_msg: false,
+    sent_message: 'Message has been sent'
+  }
 
+
+  sentMessage =(event, props) => {
+    event.preventDefault();
+    if(this.state.name === '' && this.state.email === '' && this.state.message === '' )
+    {
+      this.setState({err_msg: 'Please enter blank field'});
+    }else{
+      this.setState({err_msg: false })
+    }   
+
+    if(this.state.err_msg === false){
+      fetch( 'https://yellow-website.com/d8-api-provider/', {
+          method: 'POST',
+          format: 'json',
+          authentication: 'basic_auth',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: this.state.name,
+            email: this.state.email,
+            message: this.state.message
+          })
+        })
+
+        this.props.messageForm();
+    }
+
+
+
+
+  }
+
+  handleOnChange = (event) => {
+    event.preventDefault();
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+
+
+
+    
+  }
 
   render(props){
+    console.log(config);
+    let err_msg = `${this.state.err_msg === false ? '' : this.state.err_msg} `;
     return(
       <Form>
         <div>
@@ -76,25 +135,53 @@ class MessageForm extends React.Component{
             <li></li><li></li>
           </ul>
           <h3>Message Form: </h3>
-        <form>
+        <form onSubmit={this.sentMessage}>
             <div className="form-group">
               <label htmlFor="InputName">Name</label>
-              <input type="text" className="form-control" id="Inputname" aria-describedby="nameHelp" placeholder="Enter name" />
-              <small id="namehelp" className="form-text text-muted"></small>
+              <input 
+                  type="text" 
+                  name="name"
+                  className="form-control" 
+                  placeholder="Enter name" 
+                  onChange={this.handleOnChange}
+                  required
+              />
+              <small id="namehelp" className="form-text text-muted">
+                {this.state.name === '' ? err_msg : this.state.name}
+              </small>
             </div>
             <div className="form-group">
               <label htmlFor="InputEmail1">Email</label>
-              <input type="email" className="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
-              <small id="emailHelp" className="form-text text-muted"></small>
+              <input 
+                  type="email" 
+                  name="email"
+                  className="form-control" 
+                  placeholder="Enter email" 
+                  onChange={this.handleOnChange}
+                  required
+              />
+              <small id="emailHelp" className="form-text text-muted">
+                {this.state.email === '' ? err_msg : this.state.email}
+              </small>
             </div>
             <div className="form-group">
               <label htmlFor="InputPassword1">Message</label>
-              <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <textarea 
+                  name="message"
+                  className="form-control" 
+                  placeholder="Message"
+                  rows="3"
+                  onChange={this.handleOnChange}
+                  required
+              >
+              </textarea>
+              <small id="emailHelp" className="form-text text-muted">
+                {this.state.message.length > 0 ? this.state.message.substring(50,0) : ''}
+              </small>
             </div>
-            <button>Submit</button>
+            <button type="submit">Submit</button>
         </form>
         </div>
-        
       </Form>
     )
   }
