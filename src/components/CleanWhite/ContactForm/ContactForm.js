@@ -77,36 +77,33 @@ const emitter = new events.EventEmitter();
 
 
 
-const ContactForm = () => {
+class ContactForm extends React.Component{
+  state = {
+    name: '',
+    email: '',
+    message: ''
+  }
+  
 
-  const data = {}
-
-
-  const handleChange = (e, propName) => {
-    data[propName] = e.target.value
+  handleChange = (e) => {
+    //data[propName] = e.target.value
+    this.setState({[e.target.name]: e.target.value})
     
   }
 
   // note the 'async' keyword, it allows us to call 'await' later
-  const handleSubmit = async (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault()
-    var node = {
+    var postData = {
       "webform_id": "contact_form",
-     
-      name: [{
-        value: data.name,
-      }],
-      email: [{
-        value: data.email,
-      }],
-      message: [{
-        value: data.message,
-        format: 'plain_text',
-      }],
+
+      "name": `${this.state.name}`,
+      "email": `${this.state.email}`,
+      "message": `${this.state.message}`,
     };
     try {
       const axios = await ajax() // wait for an initialized axios object
-      const response = await axios.post('/webform_rest/submit', node) // wait for the POST AJAX request to complete
+      const response = await axios.post('/webform_rest/submit', postData) // wait for the POST AJAX request to complete
       console.log('Node created: ', response)
       emitter.emit('NODE_UPDATED')
     } catch (e) {
@@ -114,14 +111,12 @@ const ContactForm = () => {
     }
   }
   
-  console.log('post data: ',data);
-
-  
-    return(
+  render(){
+     return(
       <Form>
         <div>
           <h3>Message Form: </h3>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label htmlFor="InputName">Name</label>
               <input 
@@ -129,7 +124,7 @@ const ContactForm = () => {
                   name="name"
                   className="form-control" 
                   placeholder="Enter name" 
-                  onChange={e => handleChange(e, 'name')}
+                  onChange={this.handleChange}
                   required
               />
            
@@ -141,7 +136,7 @@ const ContactForm = () => {
                   name="email"
                   className="form-control" 
                   placeholder="Enter email" 
-                  onChange={e => handleChange(e, 'email')}
+                  onChange={this.handleChange}
                   required
               />
           
@@ -153,7 +148,7 @@ const ContactForm = () => {
                   className="form-control" 
                   placeholder="Message"
                   rows="3"
-                  onChange={e => handleChange(e, 'message')}
+                  onChange={this.handleChange}
                   required
               >
               </textarea>
@@ -164,6 +159,8 @@ const ContactForm = () => {
         </div>
       </Form>
     )
+  }
+   
 }
 export default ContactForm;
 
