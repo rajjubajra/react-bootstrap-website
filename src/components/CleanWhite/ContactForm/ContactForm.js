@@ -81,13 +81,18 @@ const ContactForm = () => {
 
   const data = {}
 
+
+  const handleChange = (e, propName) => {
+    data[propName] = e.target.value
+    
+  }
+
   // note the 'async' keyword, it allows us to call 'await' later
   const handleSubmit = async (e) => {
     e.preventDefault()
     var node = {
-      type: [{
-        webform_id: 'contact-form',
-      }],
+      "webform_id": "contact_form",
+     
       name: [{
         value: data.name,
       }],
@@ -101,18 +106,15 @@ const ContactForm = () => {
     };
     try {
       const axios = await ajax() // wait for an initialized axios object
-      const response = await axios.post('/form/contact-form', node) // wait for the POST AJAX request to complete
+      const response = await axios.post('/webform_rest/submit', node) // wait for the POST AJAX request to complete
       console.log('Node created: ', response)
       emitter.emit('NODE_UPDATED')
     } catch (e) {
       alert(e)
     }
   }
-
-  const handleChange = (e, propName) => {
-    data[propName] = e.target.value
-  }
   
+  console.log('post data: ',data);
 
   
     return(
