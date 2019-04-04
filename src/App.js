@@ -188,11 +188,6 @@ class App extends Component {
                              isLoaded: true
                    })
                  }
- 
-
- 
-
-
 
       } catch (e) {
       alert(e)
@@ -236,5 +231,4 @@ class App extends Component {
     );
   }
 }
-
 export default App;

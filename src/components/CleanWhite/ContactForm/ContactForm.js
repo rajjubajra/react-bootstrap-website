@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import events from 'events'
+import ajax from '../../../Restapi/ajax';
+
 //import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
 const Form = styled.div`
@@ -8,6 +11,7 @@ const Form = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 200px;
 
     .text-muted{
       height: 10px;
@@ -68,45 +72,54 @@ const Form = styled.div`
 `;
 
 
+// Create an emitter object so that we can do pub/sub
+const emitter = new events.EventEmitter();
 
 
-class MessageForm extends React.Component{
-  state = {
-    name: '',
-    email: '',
-    message: '',
-    err_msg: false,
-    sent_message: 'Message has been sent'
+
+const ContactForm = () => {
+
+  const data = {}
+
+  // note the 'async' keyword, it allows us to call 'await' later
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    var node = {
+      type: [{
+        webform_id: 'contact-form',
+      }],
+      name: [{
+        value: data.name,
+      }],
+      email: [{
+        value: data.email,
+      }],
+      message: [{
+        value: data.message,
+        format: 'plain_text',
+      }],
+    };
+    try {
+      const axios = await ajax() // wait for an initialized axios object
+      const response = await axios.post('/form/contact-form', node) // wait for the POST AJAX request to complete
+      console.log('Node created: ', response)
+      emitter.emit('NODE_UPDATED')
+    } catch (e) {
+      alert(e)
+    }
   }
 
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-    
-  }
-
-
-  handleChange = () => {
-
+  const handleChange = (e, propName) => {
+    data[propName] = e.target.value
   }
   
 
-  render(props){
-   
-    let err_msg = `${this.state.err_msg === false ? '' : this.state.err_msg} `;
-
-
-
-
-
+  
     return(
       <Form>
         <div>
-          <ul className="close" onClick={this.props.messageForm} title="Close Form">
-            <li></li><li></li>
-          </ul>
           <h3>Message Form: </h3>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="InputName">Name</label>
               <input 
@@ -114,12 +127,10 @@ class MessageForm extends React.Component{
                   name="name"
                   className="form-control" 
                   placeholder="Enter name" 
-                  onChange={this.handleChange}
+                  onChange={e => handleChange(e, 'name')}
                   required
               />
-              <small id="namehelp" className="form-text text-muted">
-                {this.state.name === '' ? err_msg : this.state.name}
-              </small>
+           
             </div>
             <div className="form-group">
               <label htmlFor="InputEmail1">Email</label>
@@ -128,12 +139,10 @@ class MessageForm extends React.Component{
                   name="email"
                   className="form-control" 
                   placeholder="Enter email" 
-                  onChange={this.handleChange}
+                  onChange={e => handleChange(e, 'email')}
                   required
               />
-              <small id="emailHelp" className="form-text text-muted">
-                {this.state.email === '' ? err_msg : this.state.email}
-              </small>
+          
             </div>
             <div className="form-group">
               <label htmlFor="InputPassword1">Message</label>
@@ -142,22 +151,17 @@ class MessageForm extends React.Component{
                   className="form-control" 
                   placeholder="Message"
                   rows="3"
-                  onChange={this.handleChange}
+                  onChange={e => handleChange(e, 'message')}
                   required
               >
               </textarea>
-              <small id="emailHelp" className="form-text text-muted">
-                {this.state.message.length > 0 ? this.state.message.substring(50,0) : ''}
-              </small>
+             
             </div>
             <button type="submit">Submit</button>
         </form>
         </div>
       </Form>
     )
-  }
-
-
 }
-export default MessageForm;
+export default ContactForm;
 

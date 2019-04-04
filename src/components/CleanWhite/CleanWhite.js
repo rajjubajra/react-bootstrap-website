@@ -15,6 +15,8 @@ import Subscription from './Subscription/Subscription';
 import Contact from './Contact/Contact';
 import Quotation from './Quotation/Quotation';
 import Footer from './Footer/Footer';
+import ContactFrom from './ContactForm/ContactForm';
+import ContactForm from './ContactForm/ContactForm';
 
 
 class CleanWhite extends React.Component{
@@ -122,6 +124,13 @@ class CleanWhite extends React.Component{
           <Quotation address={this.props.contactinformation} />
         </div>
         
+        <div className="row">
+          <div className="col-md-4"></div>
+          <div className="col-md-4">
+            <ContactForm />
+          </div>
+          <div className="col-md-4"></div>          
+        </div>
         <div className="row footer">
           <Footer />
         </div>
