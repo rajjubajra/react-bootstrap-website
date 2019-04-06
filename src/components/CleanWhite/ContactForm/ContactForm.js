@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import events from 'events'
 import ajax from '../../../Restapi/ajax';
-
 //import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
 const Form = styled.div`
@@ -76,15 +75,52 @@ const Form = styled.div`
 const emitter = new events.EventEmitter();
 
 
-
 class ContactForm extends React.Component{
-  state = {
-    name: '',
-    email: '',
-    message: ''
+  constructor(){
+    super();
+    this.state = {
+      name: '',
+      email: '',
+      message: '',
+      submitMessage: '',
+    }
+    this.refresh = this.refresh.bind(this)
   }
   
 
+
+  // componentWillMount(){
+  //   emitter.addListener('NODE_UPDATED', this.refresh)
+  // }
+
+  // componentWillUnmount(){
+  //   emitter.addListener('NODE_UPDATED', this.refresh)
+  // }
+
+  // async componentDidMount(){
+  //   await this.refresh()
+  // }
+
+  //GET DATA
+  async refresh() {
+    // AJAX fetch server/webform_rest/submit?_format=json and setState with the response data
+    try {
+      const axios = await ajax() // wait for an initialized axios object
+      const response = await axios.get('/webform_rest/contact-form/submission') // wait for the POST AJAX request to complete
+      if (response.data) {
+        // setState will trigger repaint
+        this.setState({ submitMessage: response.data })
+      }
+      } catch (e) {
+      alert(e)
+    }
+  }
+  
+  
+
+
+
+ //POST DATA
   handleChange = (e) => {
     //data[propName] = e.target.value
     this.setState({[e.target.name]: e.target.value})
@@ -96,7 +132,6 @@ class ContactForm extends React.Component{
     e.preventDefault()
     var postData = {
       "webform_id": "contact_form",
-
       "name": `${this.state.name}`,
       "email": `${this.state.email}`,
       "message": `${this.state.message}`,
@@ -109,13 +144,17 @@ class ContactForm extends React.Component{
     } catch (e) {
       alert(e)
     }
+
+    emitter.addListener('NODE_UPDATED', this.refresh);
+    await this.refresh();
   }
   
   render(){
+    console.log('submit Message?', this.state.submitMessage);
      return(
       <Form>
         <div>
-          <h3>Message Form: </h3>
+          <h3>Message Form: {this.state.submitMessage} </h3>
         <form onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label htmlFor="InputName">Name</label>
