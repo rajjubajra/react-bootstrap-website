@@ -21,7 +21,7 @@ const LoadingDiv = styled.div`
 
   i{
     font-size: 3rem;
-    animation: ${ColorChange} 0.5s infinite;
+    // animation: ${ColorChange} 0.5s infinite;
     text-shadow: 0px 0px 0px;
   }
 
